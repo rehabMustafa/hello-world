@@ -37,9 +37,9 @@ jobs:
       - image: circleci/node:13.8.0
     steps:
       - run: 
-        name: Upload Failed Tests
-        command: return 1
-        when: on_fail
+          name: Upload Failed Tests
+          command: return 1
+          when: on_fail
 workflows:
   # Name the workflow "welcome"
   welcome:
