@@ -32,6 +32,14 @@ jobs:
       - image: circleci/node:13.8.0
     steps:
       - print_pipeline_id
+  failed_job:
+    docker:
+      - image: circleci/node:13.8.0
+    steps:
+      - run: 
+        name: Upload Failed Tests
+        command: return 1
+        when: on_fail
 workflows:
   # Name the workflow "welcome"
   welcome:
@@ -42,3 +50,4 @@ workflows:
       - print_output_file:
           requires: 
             - save_hello_world_output
+      - failed_job
